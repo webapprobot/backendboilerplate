@@ -1,0 +1,9 @@
+#!/bin/bash
+
+backendboilerplate stop -p
+rm /etc/systemd/system/backendboilerplate.service
+systemctl daemon-reload
+
+backendboilerplate stop
+rm /etc/systemd/system/dawascopeDev.service
+systemctl daemon-reload

@@ -1,0 +1,2668 @@
+basePath: /api/
+definitions:
+  authModels.User:
+    properties:
+      Active:
+        type: boolean
+      Approved:
+        type: boolean
+      Authority:
+        type: string
+      DateOfBirth:
+        type: string
+      Email:
+        type: string
+      Enabled:
+        type: boolean
+      FirstName:
+        type: string
+      Gender:
+        type: string
+      LastName:
+        type: string
+      Telephone:
+        type: string
+      createdAt:
+        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+        type: string
+      deletedAt:
+        type: string
+      updatedAt:
+        type: string
+      userId:
+        description: |-
+          UserId    string    `gorm:"type:uuid;primary_key;"`
+          UserId      string    `gorm:"primary_key;"`
+          UserId      uuid.UUID `gorm:"type:uuid;primary_key;"`
+          UserId      string    `gorm:"primary_key;type:varchar(36);"`
+        type: string
+    type: object
+  authModels.UserCreate:
+    properties:
+      Authority:
+        type: string
+      DateOfBirth:
+        type: string
+      Email:
+        type: string
+      FirstName:
+        type: string
+      Gender:
+        type: string
+      LastName:
+        type: string
+      Telephone:
+        type: string
+    type: object
+  booksController.Author:
+    properties:
+      Author:
+        type: string
+    type: object
+  booksController.Binding:
+    properties:
+      Binding:
+        type: string
+    type: object
+  booksController.Color:
+    properties:
+      Color:
+        type: string
+    type: object
+  booksController.Cover:
+    properties:
+      Cover:
+        type: string
+    type: object
+  booksController.Grade:
+    properties:
+      Grade:
+        type: string
+    type: object
+  booksController.Publisher:
+    properties:
+      Publisher:
+        type: string
+    type: object
+  booksController.Size:
+    properties:
+      Size:
+        type: string
+    type: object
+  booksController.Subject:
+    properties:
+      Subject:
+        type: string
+    type: object
+  booksController.existingAuthorStr:
+    properties:
+      Approved:
+        type: boolean
+      Author:
+        type: string
+      AuthorId:
+        type: string
+    type: object
+  booksController.existingBindingStr:
+    properties:
+      Approved:
+        type: boolean
+      Binding:
+        type: string
+      BindingId:
+        type: string
+    type: object
+  booksController.existingColorStr:
+    properties:
+      Approved:
+        type: boolean
+      Color:
+        type: string
+      ColorId:
+        type: string
+    type: object
+  booksController.existingCoverStr:
+    properties:
+      Approved:
+        type: boolean
+      Cover:
+        type: string
+      CoverId:
+        type: string
+    type: object
+  booksController.existingGradeStr:
+    properties:
+      Approved:
+        type: boolean
+      Grade:
+        type: string
+      GradeId:
+        type: string
+    type: object
+  booksController.existingPublisherStr:
+    properties:
+      Approved:
+        type: boolean
+      Publisher:
+        type: string
+      PublisherId:
+        type: string
+    type: object
+  booksController.existingSizeStr:
+    properties:
+      Approved:
+        type: boolean
+      Size:
+        type: string
+      SizeId:
+        type: string
+    type: object
+  booksController.existingSubjectStr:
+    properties:
+      Approved:
+        type: boolean
+      Subject:
+        type: string
+      SubjectId:
+        type: string
+    type: object
+  booksModels.Author:
+    properties:
+      Approved:
+        type: boolean
+      Author:
+        type: string
+      AuthorId:
+        type: string
+      AuthorLower:
+        type: string
+    type: object
+  booksModels.Binding:
+    properties:
+      Approved:
+        type: boolean
+      Binding:
+        type: string
+      BindingId:
+        type: string
+      BindingLower:
+        type: string
+    type: object
+  booksModels.Book:
+    properties:
+      Approved:
+        type: boolean
+      Author:
+        $ref: '#/definitions/booksModels.Author'
+      AuthorId:
+        type: string
+      Binding:
+        $ref: '#/definitions/booksModels.Binding'
+      BindingId:
+        type: string
+      Color:
+        $ref: '#/definitions/booksModels.Color'
+      ColorId:
+        type: string
+      Cover:
+        $ref: '#/definitions/booksModels.Cover'
+      CoverId:
+        type: string
+      Edition:
+        type: string
+      Grade:
+        $ref: '#/definitions/booksModels.Grade'
+      GradeId:
+        type: string
+      Isbn:
+        type: string
+      Publisher:
+        $ref: '#/definitions/booksModels.Publisher'
+      PublisherId:
+        type: string
+      Size:
+        $ref: '#/definitions/booksModels.Size'
+      SizeId:
+        type: string
+      Subject:
+        $ref: '#/definitions/booksModels.Subject'
+      SubjectId:
+        type: string
+      Title:
+        type: string
+      Year:
+        type: integer
+      createdAt:
+        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+        type: string
+      deletedAt:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  booksModels.BookBase:
+    properties:
+      Approved:
+        type: boolean
+      AuthorId:
+        type: string
+      BindingId:
+        type: string
+      ColorId:
+        type: string
+      CoverId:
+        type: string
+      Edition:
+        type: string
+      GradeId:
+        type: string
+      Isbn:
+        type: string
+      PublisherId:
+        type: string
+      SizeId:
+        type: string
+      SubjectId:
+        type: string
+      Title:
+        type: string
+      Year:
+        type: integer
+    type: object
+  booksModels.Color:
+    properties:
+      Approved:
+        type: boolean
+      Color:
+        type: string
+      ColorId:
+        type: string
+      ColorLower:
+        type: string
+    type: object
+  booksModels.Cover:
+    properties:
+      Approved:
+        type: boolean
+      Cover:
+        type: string
+      CoverId:
+        type: string
+      CoverLower:
+        type: string
+    type: object
+  booksModels.Grade:
+    properties:
+      Approved:
+        type: boolean
+      Grade:
+        type: string
+      GradeId:
+        type: string
+      GradeLower:
+        type: string
+    type: object
+  booksModels.Publisher:
+    properties:
+      Approved:
+        type: boolean
+      Publisher:
+        type: string
+      PublisherId:
+        type: string
+      PublisherLower:
+        type: string
+    type: object
+  booksModels.Size:
+    properties:
+      Approved:
+        type: boolean
+      Size:
+        type: string
+      SizeId:
+        type: string
+      SizeLower:
+        type: string
+    type: object
+  booksModels.Subject:
+    properties:
+      Approved:
+        type: boolean
+      Subject:
+        type: string
+      SubjectId:
+        type: string
+      SubjectLower:
+        type: string
+    type: object
+  charitiesController.Charity:
+    properties:
+      Charity:
+        type: string
+    type: object
+  charitiesController.existingCharityStr:
+    properties:
+      Approved:
+        type: boolean
+      Charity:
+        type: string
+      CharityId:
+        type: string
+    type: object
+  charityModels.Charity:
+    properties:
+      Approved:
+        type: boolean
+      Charity:
+        type: string
+      CharityId:
+        type: string
+      CharityLower:
+        type: string
+    type: object
+  controllers.forgotPasswordInput:
+    properties:
+      Email:
+        type: string
+    type: object
+  controllers.loginInput:
+    properties:
+      Email:
+        type: string
+      Password:
+        type: string
+    type: object
+  controllers.passwordCode:
+    properties:
+      Code:
+        type: string
+    type: object
+  controllers.resetPasswordInput:
+    properties:
+      Code:
+        type: string
+      Password:
+        type: string
+    type: object
+  controllers.tokenData:
+    properties:
+      token:
+        description: '`json:"Token"`'
+        type: string
+    type: object
+  librariesController.LibraryBase:
+    properties:
+      Library:
+        type: string
+      Personal:
+        type: boolean
+    type: object
+  librariesController.LibraryBaseWithId:
+    properties:
+      Library:
+        type: string
+      LibraryId:
+        type: string
+      Personal:
+        type: boolean
+      UserId:
+        type: string
+    type: object
+  libraryModels.Library:
+    properties:
+      Library:
+        type: string
+      LibraryId:
+        type: string
+      LibraryLower:
+        type: string
+      Personal:
+        type: boolean
+      User:
+        $ref: '#/definitions/authModels.User'
+      UserId:
+        type: string
+    type: object
+  libraryModels.LibraryOwner:
+    properties:
+      Library:
+        $ref: '#/definitions/libraryModels.Library'
+      LibraryId:
+        type: string
+      LibraryOwnerId:
+        type: string
+      Publisher:
+        $ref: '#/definitions/authModels.User'
+      UserId:
+        type: string
+    type: object
+  libraryModels.LibraryOwnerBase:
+    properties:
+      LibraryId:
+        type: string
+      UserId:
+        type: string
+    type: object
+  libraryModels.LibraryOwnerBaseWithId:
+    properties:
+      LibraryId:
+        type: string
+      LibraryOwnerId:
+        type: string
+      UserId:
+        type: string
+    type: object
+  physicalBookModels.PhysicalBook:
+    properties:
+      Book:
+        type: string
+      Library:
+        $ref: '#/definitions/libraryModels.Library'
+      LibraryId:
+        type: string
+      NameOnCover:
+        type: string
+      PhysicalBookId:
+        type: string
+      Shelf:
+        $ref: '#/definitions/shelfModels.Shelf'
+      ShelfId:
+        type: string
+      Year:
+        description: |-
+          Book           booksModels.Book      `gorm:"not null;foreignKey:Isbn" json:"Book"`
+          Book        booksModels.Book `gorm:"not null;foreignKey:Isbn" json:"Book"`
+          Book        booksModels.Book `json:"Book"`
+        type: integer
+      createdAt:
+        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+        type: string
+      deletedAt:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  physicalBookModels.PhysicalBookBase:
+    properties:
+      Isbn:
+        type: string
+      LibraryId:
+        type: string
+      NameOnCover:
+        type: string
+      ShelfId:
+        type: string
+      Year:
+        type: integer
+    type: object
+  physicalBookModels.PhysicalBookBaseWithId:
+    properties:
+      Isbn:
+        type: string
+      LibraryId:
+        type: string
+      NameOnCover:
+        type: string
+      PhysicalBookId:
+        type: string
+      ShelfId:
+        type: string
+      Year:
+        type: integer
+    type: object
+  physicalBookModels.PhysicalBookHolderLibrary:
+    properties:
+      Library:
+        $ref: '#/definitions/libraryModels.Library'
+      LibraryId:
+        type: string
+      PhysicalBookHolderLibraryId:
+        type: string
+      PhysicalBookId:
+        type: string
+      createdAt:
+        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+        type: string
+      deletedAt:
+        type: string
+      level:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  physicalBookModels.PhysicalBookHolderLibraryBase:
+    properties:
+      LibraryId:
+        type: string
+      PhysicalBookId:
+        type: string
+      level:
+        type: integer
+    type: object
+  physicalBookModels.PhysicalBookOwnerLibrary:
+    properties:
+      Library:
+        $ref: '#/definitions/libraryModels.Library'
+      LibraryId:
+        type: string
+      PhysicalBookId:
+        type: string
+      PhysicalBookOwnerLibraryId:
+        type: string
+      createdAt:
+        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
+        type: string
+      deletedAt:
+        type: string
+      level:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  physicalBookModels.PhysicalBookOwnerLibraryBase:
+    properties:
+      LibraryId:
+        type: string
+      PhysicalBookId:
+        type: string
+    type: object
+  shelfModels.Shelf:
+    properties:
+      Lat:
+        type: number
+      Lon:
+        type: number
+      Publisher:
+        $ref: '#/definitions/authModels.User'
+      Shelf:
+        type: string
+      ShelfId:
+        type: string
+      ShelfLower:
+        type: string
+      Shop:
+        type: boolean
+      UserId:
+        type: string
+    type: object
+  shelfModels.ShelfBase:
+    properties:
+      Lat:
+        type: number
+      Lon:
+        type: number
+      Shelf:
+        type: string
+      Shop:
+        type: boolean
+    type: object
+  shelfModels.ShelfBaseWithId:
+    properties:
+      Lat:
+        type: number
+      Lon:
+        type: number
+      Shelf:
+        type: string
+      ShelfId:
+        type: string
+      Shop:
+        type: boolean
+      UserId:
+        type: string
+    type: object
+  shelfModels.ShelfOwner:
+    properties:
+      Publisher:
+        $ref: '#/definitions/authModels.User'
+      Shelf:
+        $ref: '#/definitions/shelfModels.Shelf'
+      ShelfId:
+        type: string
+      ShelfOwnerId:
+        type: string
+      UserId:
+        type: string
+    type: object
+  shelfModels.ShelfOwnerBase:
+    properties:
+      ShelfId:
+        type: string
+      UserId:
+        type: string
+    type: object
+  shelfModels.ShelfOwnerBaseWithId:
+    properties:
+      ShelfId:
+        type: string
+      ShelfOwnerId:
+        type: string
+      UserId:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: brian@backendboilerplate.com
+    name: Brian Onang'o
+  description: backendboilerplate API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://backendboilerplate.com
+  title: backendboilerplate API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - description: Login data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.loginInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.tokenData'
+      summary: Login
+      tags:
+      - auth-controller
+  /auth/social/facebook:
+    get:
+      consumes:
+      - application/json
+      description: Log in with fb
+      parameters:
+      - description: Facebook code
+        in: query
+        name: Code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authModels.User'
+      summary: Log in with fb
+      tags:
+      - auth-controller
+  /auth/social/github:
+    get:
+      consumes:
+      - application/json
+      description: Log in with github
+      parameters:
+      - description: Github code
+        in: query
+        name: Code
+        required: true
+        type: string
+      - description: Github clientId
+        in: query
+        name: clientId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authModels.User'
+      summary: Log in with github
+      tags:
+      - auth-controller
+  /auth/social/linkedIn:
+    get:
+      consumes:
+      - application/json
+      description: Log in with linkedIn
+      parameters:
+      - description: linkedIn code
+        in: query
+        name: Code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authModels.User'
+      summary: Log in with linkedIn
+      tags:
+      - auth-controller
+  /auth/social/twitter:
+    get:
+      consumes:
+      - application/json
+      description: Log in with twitter
+      parameters:
+      - description: Twitter code
+        in: query
+        name: Code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authModels.User'
+      summary: Log in with twitter
+      tags:
+      - auth-controller
+  /auth/token:
+    get:
+      consumes:
+      - application/json
+      description: Get Refresh Token
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.tokenData'
+      summary: Get Refresh Token
+      tags:
+      - auth-controller
+  /book:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Isbn
+        in: query
+        name: Isbn
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Book
+      tags:
+      - book-controller
+    get:
+      consumes:
+      - application/json
+      description: Get Book
+      parameters:
+      - in: query
+        name: Approved
+        type: boolean
+      - in: query
+        name: AuthorId
+        type: string
+      - in: query
+        name: BindingId
+        type: string
+      - in: query
+        name: ColorId
+        type: string
+      - in: query
+        name: CoverId
+        type: string
+      - in: query
+        name: Edition
+        type: string
+      - in: query
+        name: GradeId
+        type: string
+      - in: query
+        name: Isbn
+        type: string
+      - in: query
+        name: PublisherId
+        type: string
+      - in: query
+        name: SizeId
+        type: string
+      - in: query
+        name: SubjectId
+        type: string
+      - in: query
+        name: Title
+        type: string
+      - in: query
+        name: Year
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Get Book
+      tags:
+      - book-controller
+    patch:
+      consumes:
+      - application/json
+      description: Update Book for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksModels.BookBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Book'
+      summary: Update Book
+      tags:
+      - book-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Book for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksModels.BookBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Book'
+      summary: Create Book
+      tags:
+      - book-controller
+  /bookHolderLibraries:
+    post:
+      consumes:
+      - application/json
+      description: Create PhysicalBookHolderLibrary for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: PhysicalBookHolderLibrary
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/physicalBookModels.PhysicalBookHolderLibraryBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookHolderLibrary'
+      summary: Create PhysicalBookHolderLibrary
+      tags:
+      - physical-books-controller
+  /bookHolderLibrary:
+    get:
+      consumes:
+      - application/json
+      description: Libraries which have held the book. Or how many times book has
+        been held by selected library. Or if library currently holds book
+      parameters:
+      - description: PhysicalBookHolderLibrary
+        in: query
+        name: PhysicalBookId
+        required: true
+        type: string
+      - description: LibraryId
+        in: query
+        name: LibraryId
+        type: string
+      - description: CurrentHolder
+        in: query
+        name: CurrentHolder
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookHolderLibrary'
+      summary: Libraries which have held the book
+      tags:
+      - relays-controller
+  /bookHolderLibraryBooks:
+    get:
+      consumes:
+      - application/json
+      description: Books which have been held by Library. Or when books are currrently
+        held by library
+      parameters:
+      - description: LibraryId
+        in: query
+        name: LibraryId
+        type: string
+      - description: Books Currently Held by Library
+        in: query
+        name: CurrentHolder
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookHolderLibrary'
+      summary: Read ReadPhysicalBookHolderLibraryBooks
+      tags:
+      - relays-controller
+  /bookOwnerLibraries:
+    post:
+      consumes:
+      - application/json
+      description: Create PhysicalBookOwnerLibrary for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: PhysicalBookOwnerLibrary
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/physicalBookModels.PhysicalBookOwnerLibraryBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookOwnerLibrary'
+      summary: Create PhysicalBookOwnerLibrary
+      tags:
+      - physical-books-controller
+  /bookOwnerLibrary:
+    get:
+      consumes:
+      - application/json
+      description: Libraries which have owned the book. Or how many times book has
+        been owned by selected library. Or if library currently owns book
+      parameters:
+      - description: PhysicalBookOwnerLibrary
+        in: query
+        name: PhysicalBookId
+        required: true
+        type: string
+      - description: LibraryId
+        in: query
+        name: LibraryId
+        type: string
+      - description: CurrentOwner
+        in: query
+        name: CurrentOwner
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookOwnerLibrary'
+      summary: Libraries which have owned the book
+      tags:
+      - relays-controller
+  /bookOwnerLibraryBooks:
+    get:
+      consumes:
+      - application/json
+      description: Books which have been owned by Library. Or when books are currrently
+        owned by library
+      parameters:
+      - description: LibraryId
+        in: query
+        name: LibraryId
+        type: string
+      - description: Books Currently Owned by Library
+        in: query
+        name: CurrentOwner
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBookOwnerLibrary'
+      summary: Read ReadPhysicalBookOwnerLibraryBooks
+      tags:
+      - relays-controller
+  /books/author:
+    patch:
+      consumes:
+      - application/json
+      description: Update Author for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Author
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingAuthorStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Author'
+      summary: Update Author
+      tags:
+      - book-author-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Author for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Author
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Author'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Author'
+      summary: Create Author
+      tags:
+      - book-author-controller
+  /books/authors:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Author for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: AuthorId
+        in: query
+        name: AuthorId
+        type: string
+      - description: Author
+        in: query
+        name: Author
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Authors
+      tags:
+      - book-author-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Author for Book
+      parameters:
+      - description: AuthorId
+        in: query
+        name: AuthorId
+        type: string
+      - description: Author
+        in: query
+        name: Author
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Author'
+      summary: Read Authors
+      tags:
+      - book-author-controller
+  /books/binding:
+    patch:
+      consumes:
+      - application/json
+      description: Update Binding for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Binding
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingBindingStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Binding'
+      summary: Update Binding
+      tags:
+      - book-binding-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Binding for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Binding
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Binding'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Binding'
+      summary: Create Binding
+      tags:
+      - book-binding-controller
+  /books/bindings:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Binding for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: BindingId
+        in: query
+        name: BindingId
+        type: string
+      - description: Binding
+        in: query
+        name: Binding
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Bindings
+      tags:
+      - book-binding-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Binding for Book
+      parameters:
+      - description: BindingId
+        in: query
+        name: BindingId
+        type: string
+      - description: Binding
+        in: query
+        name: Binding
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Binding'
+      summary: Read Bindings
+      tags:
+      - book-binding-controller
+  /books/color:
+    patch:
+      consumes:
+      - application/json
+      description: Update Color for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Color
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingColorStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Color'
+      summary: Update Color
+      tags:
+      - book-color-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Color for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Color
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Color'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Color'
+      summary: Create Color
+      tags:
+      - book-color-controller
+  /books/colors:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Color for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: ColorId
+        in: query
+        name: ColorId
+        type: string
+      - description: Color
+        in: query
+        name: Color
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Colors
+      tags:
+      - book-color-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Color for Book
+      parameters:
+      - description: ColorId
+        in: query
+        name: ColorId
+        type: string
+      - description: Color
+        in: query
+        name: Color
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Color'
+      summary: Read Colors
+      tags:
+      - book-color-controller
+  /books/cover:
+    patch:
+      consumes:
+      - application/json
+      description: Update Cover for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Cover
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingCoverStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Cover'
+      summary: Update Cover
+      tags:
+      - book-cover-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Cover for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Cover
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Cover'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Cover'
+      summary: Create Cover
+      tags:
+      - book-cover-controller
+  /books/covers:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Cover for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: CoverId
+        in: query
+        name: CoverId
+        type: string
+      - description: Cover
+        in: query
+        name: Cover
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Covers
+      tags:
+      - book-cover-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Cover for Book
+      parameters:
+      - description: CoverId
+        in: query
+        name: CoverId
+        type: string
+      - description: Cover
+        in: query
+        name: Cover
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Cover'
+      summary: Read Covers
+      tags:
+      - book-cover-controller
+  /books/grade:
+    patch:
+      consumes:
+      - application/json
+      description: Update Grade for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Grade
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingGradeStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Grade'
+      summary: Update Grade
+      tags:
+      - book-grades-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Grade for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Grade
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Grade'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Grade'
+      summary: Create Grade
+      tags:
+      - book-grades-controller
+  /books/grades:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Grade for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: GradeId
+        in: query
+        name: GradeId
+        type: string
+      - description: Grade
+        in: query
+        name: Grade
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Grades
+      tags:
+      - book-grades-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Grade for Book
+      parameters:
+      - description: GradeId
+        in: query
+        name: GradeId
+        type: string
+      - description: Grade
+        in: query
+        name: Grade
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Grade'
+      summary: Read Grades
+      tags:
+      - book-grades-controller
+  /books/publisher:
+    patch:
+      consumes:
+      - application/json
+      description: Update Publisher for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Publisher
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingPublisherStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Publisher'
+      summary: Update Publisher
+      tags:
+      - book-publisher-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Publisher for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Publisher
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Publisher'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Publisher'
+      summary: Create Publisher
+      tags:
+      - book-publisher-controller
+  /books/publishers:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Publisher for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: PublisherId
+        in: query
+        name: PublisherId
+        type: string
+      - description: Publisher
+        in: query
+        name: Publisher
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Publishers
+      tags:
+      - book-publisher-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Publisher for Book
+      parameters:
+      - description: PublisherId
+        in: query
+        name: PublisherId
+        type: string
+      - description: Publisher
+        in: query
+        name: Publisher
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Publisher'
+      summary: Read Publishers
+      tags:
+      - book-publisher-controller
+  /books/size:
+    patch:
+      consumes:
+      - application/json
+      description: Update Size for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Size
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingSizeStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Size'
+      summary: Update Size
+      tags:
+      - book-size-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Size for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Size
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Size'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Size'
+      summary: Create Size
+      tags:
+      - book-size-controller
+  /books/sizes:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Size for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: SizeId
+        in: query
+        name: SizeId
+        type: string
+      - description: Size
+        in: query
+        name: Size
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Sizes
+      tags:
+      - book-size-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Size for Book
+      parameters:
+      - description: SizeId
+        in: query
+        name: SizeId
+        type: string
+      - description: Size
+        in: query
+        name: Size
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Size'
+      summary: Read Sizes
+      tags:
+      - book-size-controller
+  /books/subject:
+    patch:
+      consumes:
+      - application/json
+      description: Update Subject for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Subject
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.existingSubjectStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Subject'
+      summary: Update Subject
+      tags:
+      - book-subject-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Subject for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Subject
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/booksController.Subject'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Subject'
+      summary: Create Subject
+      tags:
+      - book-subject-controller
+  /books/subjects:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Subject for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: SubjectId
+        in: query
+        name: SubjectId
+        type: string
+      - description: Subject
+        in: query
+        name: Subject
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Subjects
+      tags:
+      - book-subject-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Subject for Book
+      parameters:
+      - description: SubjectId
+        in: query
+        name: SubjectId
+        type: string
+      - description: Subject
+        in: query
+        name: Subject
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/booksModels.Subject'
+      summary: Read Subjects
+      tags:
+      - book-subject-controller
+  /charities:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Charity for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: CharityId
+        in: query
+        name: CharityId
+        type: string
+      - description: Charity
+        in: query
+        name: Charity
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Charities
+      tags:
+      - charities-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Charity for Book
+      parameters:
+      - description: CharityId
+        in: query
+        name: CharityId
+        type: string
+      - description: Charity
+        in: query
+        name: Charity
+        type: string
+      - description: Approved
+        in: query
+        name: Approved
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/charityModels.Charity'
+      summary: Read Charities
+      tags:
+      - charities-controller
+  /charity:
+    patch:
+      consumes:
+      - application/json
+      description: Update Charity for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Charity
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/charitiesController.existingCharityStr'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/charityModels.Charity'
+      summary: Update Charity
+      tags:
+      - charities-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Charity for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Charity
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/charitiesController.Charity'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/charityModels.Charity'
+      summary: Create Charity
+      tags:
+      - charities-controller
+  /dev:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+      summary: Returns a 200
+      tags:
+      - dev
+  /libraries:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Library for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: LibraryId
+        in: query
+        name: LibraryId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Libraries
+      tags:
+      - libraries-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Library for Book
+      parameters:
+      - in: query
+        name: Library
+        type: string
+      - in: query
+        name: LibraryId
+        type: string
+      - in: query
+        name: Personal
+        type: boolean
+      - in: query
+        name: UserId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.Library'
+      summary: Read Libraries
+      tags:
+      - libraries-controller
+  /library:
+    patch:
+      consumes:
+      - application/json
+      description: Update Library for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Library
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/librariesController.LibraryBaseWithId'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.Library'
+      summary: Update Library
+      tags:
+      - libraries-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Library for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Library
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/librariesController.LibraryBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.Library'
+      summary: Create Library
+      tags:
+      - libraries-controller
+  /libraryowner:
+    patch:
+      consumes:
+      - application/json
+      description: Update LibraryOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book LibraryOwner
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/libraryModels.LibraryOwnerBaseWithId'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.LibraryOwner'
+      summary: Update LibraryOwner
+      tags:
+      - library-owners-controller
+    post:
+      consumes:
+      - application/json
+      description: Create LibraryOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book LibraryOwner
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/libraryModels.LibraryOwnerBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.LibraryOwner'
+      summary: Create LibraryOwner
+      tags:
+      - library-owners-controller
+  /libraryowners:
+    delete:
+      consumes:
+      - application/json
+      description: Delete LibraryOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: LibraryOwnerId
+        in: query
+        name: LibraryOwnerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete LibraryOwnerOwners
+      tags:
+      - library-owners-controller
+    get:
+      consumes:
+      - application/json
+      description: Read LibraryOwner for Book
+      parameters:
+      - in: query
+        name: LibraryId
+        type: string
+      - in: query
+        name: LibraryOwnerId
+        type: string
+      - in: query
+        name: UserId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/libraryModels.LibraryOwner'
+      summary: Read LibraryOwnerOwners
+      tags:
+      - library-owners-controller
+  /noauth/activate:
+    get:
+      consumes:
+      - application/json
+      description: Activate User
+      parameters:
+      - description: Activation Token
+        in: query
+        name: activateToken
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.passwordCode'
+      summary: Activate User
+      tags:
+      - auth-controller
+  /noauth/forgotPassword:
+    post:
+      consumes:
+      - application/json
+      description: ForgotPassword
+      parameters:
+      - description: Forgot password data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.forgotPasswordInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: ForgotPassword
+      tags:
+      - auth-controller
+  /noauth/resetPassword:
+    post:
+      consumes:
+      - application/json
+      description: CreatePassword
+      parameters:
+      - description: Password data
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.resetPasswordInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: CreatePassword
+      tags:
+      - auth-controller
+  /noauth/user:
+    post:
+      consumes:
+      - application/json
+      description: Create User
+      parameters:
+      - description: Bearer token
+        in: header
+        name: X-Authorization
+        type: string
+      - description: Send Activation Email
+        in: query
+        name: sendActivationMail
+        type: boolean
+      - description: User
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/authModels.UserCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authModels.User'
+      summary: Create User
+      tags:
+      - auth-controller
+  /physicalBooks:
+    delete:
+      consumes:
+      - application/json
+      description: Delete PhysicalBook for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: PhysicalBookId
+        in: query
+        name: PhysicalBookId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete PhysicalBooks
+      tags:
+      - physical-books-controller
+    get:
+      consumes:
+      - application/json
+      description: Read PhysicalBook for Book
+      parameters:
+      - in: query
+        name: Isbn
+        type: string
+      - in: query
+        name: LibraryId
+        type: string
+      - in: query
+        name: NameOnCover
+        type: string
+      - in: query
+        name: PhysicalBookId
+        type: string
+      - in: query
+        name: ShelfId
+        type: string
+      - in: query
+        name: Year
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBook'
+      summary: Read PhysicalBooks
+      tags:
+      - physical-books-controller
+    patch:
+      consumes:
+      - application/json
+      description: Update PhysicalBook for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book PhysicalBook
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/physicalBookModels.PhysicalBookBaseWithId'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBook'
+      summary: Update PhysicalBook
+      tags:
+      - physical-books-controller
+    post:
+      consumes:
+      - application/json
+      description: Create PhysicalBook for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: PhysicalBook
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/physicalBookModels.PhysicalBookBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/physicalBookModels.PhysicalBook'
+      summary: Create PhysicalBook
+      tags:
+      - physical-books-controller
+  /shelf:
+    patch:
+      consumes:
+      - application/json
+      description: Update Shelf for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Shelf
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/shelfModels.ShelfBaseWithId'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.Shelf'
+      summary: Update Shelf
+      tags:
+      - shelves-controller
+    post:
+      consumes:
+      - application/json
+      description: Create Shelf for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book Shelf
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/shelfModels.ShelfBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.Shelf'
+      summary: Create Shelf
+      tags:
+      - shelves-controller
+  /shelfowner:
+    patch:
+      consumes:
+      - application/json
+      description: Update ShelfOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book ShelfOwner
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/shelfModels.ShelfOwnerBaseWithId'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.ShelfOwner'
+      summary: Update ShelfOwner
+      tags:
+      - shelf-owners-controller
+    post:
+      consumes:
+      - application/json
+      description: Create ShelfOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: Book ShelfOwner
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/shelfModels.ShelfOwnerBase'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.ShelfOwner'
+      summary: Create ShelfOwner
+      tags:
+      - shelf-owners-controller
+  /shelfowners:
+    delete:
+      consumes:
+      - application/json
+      description: Delete ShelfOwner for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: ShelfOwnerId
+        in: query
+        name: ShelfOwnerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete ShelfOwnerOwners
+      tags:
+      - shelf-owners-controller
+    get:
+      consumes:
+      - application/json
+      description: Read ShelfOwner for Book
+      parameters:
+      - in: query
+        name: ShelfId
+        type: string
+      - in: query
+        name: ShelfOwnerId
+        type: string
+      - in: query
+        name: UserId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.ShelfOwner'
+      summary: Read ShelfOwnerOwners
+      tags:
+      - shelf-owners-controller
+  /shelves:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Shelf for Book
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: X-Authorization
+        required: true
+        type: string
+      - description: ShelfId
+        in: query
+        name: ShelfId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Delete Shelves
+      tags:
+      - shelves-controller
+    get:
+      consumes:
+      - application/json
+      description: Read Shelf for Book
+      parameters:
+      - in: query
+        name: Lat
+        type: number
+      - in: query
+        name: Lon
+        type: number
+      - in: query
+        name: Shelf
+        type: string
+      - in: query
+        name: ShelfId
+        type: string
+      - in: query
+        name: Shop
+        type: boolean
+      - in: query
+        name: UserId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/shelfModels.Shelf'
+      summary: Read Shelves
+      tags:
+      - shelves-controller
+swagger: "2.0"

@@ -1,0 +1,7 @@
+Package: backendboilerplate
+Version: 1.0
+Architecture: amd64
+Maintainer: Brian Onang'o <surgbc@gmail.com>
+Description: backendboilerplate API server.
+ backendboilerplate API server.
+ 

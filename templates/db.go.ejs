@@ -1,0 +1,104 @@
+package db
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+    <% Object.keys(imports).forEach(function(imported) { %>
+    <%-imports[imported]%> <% }); 
+    %>
+	// "github.com/webappbot/backendboilerplate/config"
+	// authModels "github.com/webappbot/backendboilerplate/src/models/auth"
+	// booksModels "github.com/webappbot/backendboilerplate/src/models/books"
+	// charityModels "github.com/webappbot/backendboilerplate/src/models/charity"
+	// libraryModels "github.com/webappbot/backendboilerplate/src/models/library"
+	// physicalBookModels "github.com/webappbot/backendboilerplate/src/models/physicalBook"
+	// shelfModels "github.com/webappbot/backendboilerplate/src/models/shelf"
+
+	// "gorm.io/driver/mysql"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
+	// "github.com/jinzhu/gorm"
+	// _ "github.com/jinzhu/gorm/dialects/postgres" // import the postgres dialect for GORM
+)
+
+var DB *gorm.DB
+
+// ca12kaql
+
+func Connect() {
+	env := os.Getenv("env")
+
+	dbTypeInterface, _ := config.GetConfig("database", env, "databasetype")
+	dbType := dbTypeInterface.(string)
+
+	nameInterface, _ := config.GetConfig("database", env, "database", dbType, "dbname")
+	hostInterface, _ := config.GetConfig("database", env, "database", dbType, "host")
+	userInterface, _ := config.GetConfig("database", env, "database", dbType, "user")
+	passInterface, _ := config.GetConfig("database", env, "database", dbType, "pass")
+	portInterface, err := config.GetConfig("database", env, "database", dbType, "port")
+
+	if err != nil || portInterface == nil {
+		switch dbTypeInterface {
+		case "postgres":
+			portInterface = 5432
+		case "mariadb":
+			portInterface = 3306
+		}
+	}
+	name := nameInterface.(string)
+	host := hostInterface.(string)
+	user := userInterface.(string)
+	pass := passInterface.(string)
+	port := fmt.Sprintf("%v", portInterface)
+	//
+	/*
+	 * Initialize db, err
+	 */
+	var db *gorm.DB
+
+	switch dbTypeInterface {
+	case "postgres":
+		dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Africa/Nairobi", host, user, pass, name, port)
+		db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
+			Logger: logger.Default.LogMode(logger.Silent),
+		})
+
+		if err != nil { 
+			dsni := fmt.Sprintf("host=%s port=%s user=%s password=%s  dbname=%s sslmode=disable", host, port, user, pass, "postgres")
+	
+			db, err = gorm.Open(postgres.Open(dsni), &gorm.Config{})
+			if err != nil {
+				fmt.Println(fmt.Sprintf("%v", err))
+				log.Fatal("Could not establish connection for creating db")
+	
+			}
+			if err := db.Exec(fmt.Sprintf("CREATE DATABASE \"%s\"", name)).Error; err != nil {
+                log.Fatalf("Failed to create database++++++=====: %v", err)
+            }
+			dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Africa/Nairobi", host, user, pass, name, port)
+			db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
+				Logger: logger.Default.LogMode(logger.Info),
+			})
+		} else {
+			fmt.Println("Connected")
+		}
+	case "mariadb":
+		// dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", user, pass, host, port, name)
+		// db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
+		// 	// Logger: logger.Default.LogMode(logger.Info),
+		// 	Logger: logger.Default.LogMode(logger.Silent),
+		// })
+	}
+
+	DB = db
+
+	db.AutoMigrate(
+        <% Object.keys(allModelStrs).forEach(function(imported) { %>
+        &<%-allModelStrs[imported]%>{}, <% }); 
+        %>
+	)
+}

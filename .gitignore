@@ -1,0 +1,8 @@
+builds/
+installer/*
+tasks.local.md
+todo.md
+.env
+
+backendrobotNotes.md
+data/*

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+backendboilerplate init --prod
+backendboilerplate start --prod
