@@ -1,4 +1,4 @@
-# Name of workflow
+# This is intended to run in the final application created from this template
 name: Release
 
 # trigger
