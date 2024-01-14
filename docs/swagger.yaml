@@ -1,42 +1,5 @@
 basePath: /api/
 definitions:
-  authModels.User:
-    properties:
-      Active:
-        type: boolean
-      Approved:
-        type: boolean
-      Authority:
-        type: string
-      DateOfBirth:
-        type: string
-      Email:
-        type: string
-      Enabled:
-        type: boolean
-      FirstName:
-        type: string
-      Gender:
-        type: string
-      LastName:
-        type: string
-      Telephone:
-        type: string
-      createdAt:
-        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
-        type: string
-      deletedAt:
-        type: string
-      updatedAt:
-        type: string
-      userId:
-        description: |-
-          UserId    string    `gorm:"type:uuid;primary_key;"`
-          UserId      string    `gorm:"primary_key;"`
-          UserId      uuid.UUID `gorm:"type:uuid;primary_key;"`
-          UserId      string    `gorm:"primary_key;type:varchar(36);"`
-        type: string
-    type: object
   authModels.UserCreate:
     properties:
       Authority:
@@ -233,7 +196,6 @@ definitions:
       Year:
         type: integer
       createdAt:
-        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
         type: string
       deletedAt:
         type: string
@@ -390,6 +352,47 @@ definitions:
         description: '`json:"Token"`'
         type: string
     type: object
+  github_com_webappbot_backendboilerplate_src_models_auth.User:
+    properties:
+      active:
+        type: boolean
+      approved:
+        type: boolean
+      authority:
+        type: string
+      dateOfBirth:
+        type: string
+      email:
+        type: string
+      enabled:
+        type: boolean
+      firstName:
+        type: string
+      float1:
+        type: number
+      float2:
+        type: number
+      float3:
+        type: number
+      float4:
+        type: number
+      gender:
+        type: string
+      int1:
+        type: integer
+      int2:
+        type: integer
+      int3:
+        type: integer
+      int4:
+        type: integer
+      lastName:
+        type: string
+      telephone:
+        type: string
+      userId:
+        type: string
+    type: object
   librariesController.LibraryBase:
     properties:
       Library:
@@ -419,7 +422,7 @@ definitions:
       Personal:
         type: boolean
       User:
-        $ref: '#/definitions/authModels.User'
+        $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       UserId:
         type: string
     type: object
@@ -432,7 +435,7 @@ definitions:
       LibraryOwnerId:
         type: string
       Publisher:
-        $ref: '#/definitions/authModels.User'
+        $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       UserId:
         type: string
     type: object
@@ -475,7 +478,6 @@ definitions:
           Book        booksModels.Book `json:"Book"`
         type: integer
       createdAt:
-        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
         type: string
       deletedAt:
         type: string
@@ -521,7 +523,6 @@ definitions:
       PhysicalBookId:
         type: string
       createdAt:
-        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
         type: string
       deletedAt:
         type: string
@@ -550,7 +551,6 @@ definitions:
       PhysicalBookOwnerLibraryId:
         type: string
       createdAt:
-        description: ID        uuid.UUID `gorm:"type:uuid;primary_key;"`
         type: string
       deletedAt:
         type: string
@@ -573,7 +573,7 @@ definitions:
       Lon:
         type: number
       Publisher:
-        $ref: '#/definitions/authModels.User'
+        $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       Shelf:
         type: string
       ShelfId:
@@ -614,7 +614,7 @@ definitions:
   shelfModels.ShelfOwner:
     properties:
       Publisher:
-        $ref: '#/definitions/authModels.User'
+        $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       Shelf:
         $ref: '#/definitions/shelfModels.Shelf'
       ShelfId:
@@ -692,7 +692,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/authModels.User'
+            $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       summary: Log in with fb
       tags:
       - auth-controller
@@ -718,7 +718,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/authModels.User'
+            $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       summary: Log in with github
       tags:
       - auth-controller
@@ -739,7 +739,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/authModels.User'
+            $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       summary: Log in with linkedIn
       tags:
       - auth-controller
@@ -760,7 +760,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/authModels.User'
+            $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       summary: Log in with twitter
       tags:
       - auth-controller
@@ -2344,7 +2344,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/authModels.User'
+            $ref: '#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User'
       summary: Create User
       tags:
       - auth-controller

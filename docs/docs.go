@@ -83,7 +83,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authModels.User"
+                            "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                         }
                     }
                 }
@@ -122,7 +122,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authModels.User"
+                            "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                         }
                     }
                 }
@@ -154,7 +154,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authModels.User"
+                            "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                         }
                     }
                 }
@@ -186,7 +186,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authModels.User"
+                            "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                         }
                     }
                 }
@@ -2592,7 +2592,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/authModels.User"
+                            "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                         }
                     }
                 }
@@ -3087,55 +3087,6 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "authModels.User": {
-            "type": "object",
-            "properties": {
-                "Active": {
-                    "type": "boolean"
-                },
-                "Approved": {
-                    "type": "boolean"
-                },
-                "Authority": {
-                    "type": "string"
-                },
-                "DateOfBirth": {
-                    "type": "string"
-                },
-                "Email": {
-                    "type": "string"
-                },
-                "Enabled": {
-                    "type": "boolean"
-                },
-                "FirstName": {
-                    "type": "string"
-                },
-                "Gender": {
-                    "type": "string"
-                },
-                "LastName": {
-                    "type": "string"
-                },
-                "Telephone": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "description": "ID        uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `",
-                    "type": "string"
-                },
-                "deletedAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "userId": {
-                    "description": "UserId    string    ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `\nUserId      string    ` + "`" + `gorm:\"primary_key;\"` + "`" + `\nUserId      uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `\nUserId      string    ` + "`" + `gorm:\"primary_key;type:varchar(36);\"` + "`" + `",
-                    "type": "string"
-                }
-            }
-        },
         "authModels.UserCreate": {
             "type": "object",
             "properties": {
@@ -3439,7 +3390,6 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "createdAt": {
-                    "description": "ID        uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `",
                     "type": "string"
                 },
                 "deletedAt": {
@@ -3682,6 +3632,68 @@ const docTemplate = `{
                 }
             }
         },
+        "github_com_webappbot_backendboilerplate_src_models_auth.User": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "approved": {
+                    "type": "boolean"
+                },
+                "authority": {
+                    "type": "string"
+                },
+                "dateOfBirth": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "float1": {
+                    "type": "number"
+                },
+                "float2": {
+                    "type": "number"
+                },
+                "float3": {
+                    "type": "number"
+                },
+                "float4": {
+                    "type": "number"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "int1": {
+                    "type": "integer"
+                },
+                "int2": {
+                    "type": "integer"
+                },
+                "int3": {
+                    "type": "integer"
+                },
+                "int4": {
+                    "type": "integer"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "telephone": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
         "librariesController.LibraryBase": {
             "type": "object",
             "properties": {
@@ -3726,7 +3738,7 @@ const docTemplate = `{
                     "type": "boolean"
                 },
                 "User": {
-                    "$ref": "#/definitions/authModels.User"
+                    "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                 },
                 "UserId": {
                     "type": "string"
@@ -3746,7 +3758,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "Publisher": {
-                    "$ref": "#/definitions/authModels.User"
+                    "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                 },
                 "UserId": {
                     "type": "string"
@@ -3807,7 +3819,6 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "createdAt": {
-                    "description": "ID        uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `",
                     "type": "string"
                 },
                 "deletedAt": {
@@ -3877,7 +3888,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "createdAt": {
-                    "description": "ID        uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `",
                     "type": "string"
                 },
                 "deletedAt": {
@@ -3921,7 +3931,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "createdAt": {
-                    "description": "ID        uuid.UUID ` + "`" + `gorm:\"type:uuid;primary_key;\"` + "`" + `",
                     "type": "string"
                 },
                 "deletedAt": {
@@ -3956,7 +3965,7 @@ const docTemplate = `{
                     "type": "number"
                 },
                 "Publisher": {
-                    "$ref": "#/definitions/authModels.User"
+                    "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                 },
                 "Shelf": {
                     "type": "string"
@@ -4019,7 +4028,7 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "Publisher": {
-                    "$ref": "#/definitions/authModels.User"
+                    "$ref": "#/definitions/github_com_webappbot_backendboilerplate_src_models_auth.User"
                 },
                 "Shelf": {
                     "$ref": "#/definitions/shelfModels.Shelf"

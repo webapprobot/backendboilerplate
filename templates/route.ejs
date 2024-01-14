@@ -1,0 +1,12 @@
+package systemRoutes
+
+import (
+	"github.com/gofiber/fiber/v2"
+	<%=package%>Controller "<%-modulePath%>/local-src/controllers/<%=package%>"
+)
+
+func (f SystemRoutes) <%=packageTitleCase%>(api *fiber.Group) {
+	<%=package%> := api.Group("/<%=package%>")
+    <%-routeGroupsStr%>
+	
+}

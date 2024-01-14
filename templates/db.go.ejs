@@ -8,15 +8,6 @@ import (
     <% Object.keys(imports).forEach(function(imported) { %>
     <%-imports[imported]%> <% }); 
     %>
-	// "github.com/webappbot/backendboilerplate/config"
-	// authModels "github.com/webappbot/backendboilerplate/src/models/auth"
-	// booksModels "github.com/webappbot/backendboilerplate/src/models/books"
-	// charityModels "github.com/webappbot/backendboilerplate/src/models/charity"
-	// libraryModels "github.com/webappbot/backendboilerplate/src/models/library"
-	// physicalBookModels "github.com/webappbot/backendboilerplate/src/models/physicalBook"
-	// shelfModels "github.com/webappbot/backendboilerplate/src/models/shelf"
-
-	// "gorm.io/driver/mysql"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -26,8 +17,6 @@ import (
 )
 
 var DB *gorm.DB
-
-// ca12kaql
 
 func Connect() {
 	env := os.Getenv("env")

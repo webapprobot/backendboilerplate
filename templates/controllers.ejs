@@ -1,0 +1,48 @@
+package <%=package%>Controller
+
+import (
+    "github.com/gofiber/fiber/v2"
+	<% Object.keys(imports).forEach(function(imported) { %>
+	<%-imports[imported]%> <% }); 
+	%>
+)
+
+// Create<%-modelTitleCase%> godoc
+// @Summary      Create <%-modelTitleCase%>
+// @Description  Create <%-modelTitleCase%> for <%-package%>
+// @Tags         <%-package%>-controller
+// @Accept       json
+// @Produce      json
+func Create<%-modelTitleCase%>(c *fiber.Ctx) error {
+    return nil
+}
+
+// Read<%-modelTitleCase%> godoc
+// @Summary      Read <%-modelTitleCase%>
+// @Description  Read <%-modelTitleCase%> for <%-package%>
+// @Tags         <%-package%>-controller
+// @Accept       json
+// @Produce      json
+func Read<%-modelTitleCase%>(c *fiber.Ctx) error {
+    return nil
+}
+
+// Delete<%-modelTitleCase%> godoc
+// @Summary      Delete <%-modelTitleCase%>
+// @Description  Delete <%-modelTitleCase%> for <%-package%>
+// @Tags         <%-package%>-controller
+// @Accept       json
+// @Produce      json
+func Delete<%-modelTitleCase%>(c *fiber.Ctx) error {
+    return nil
+}
+
+// Update<%-modelTitleCase%> godoc
+// @Summary      Update <%-modelTitleCase%>
+// @Description  Update <%-modelTitleCase%> for <%-package%>
+// @Tags         <%-package%>-controller
+// @Accept       json
+// @Produce      json
+func Update<%-modelTitleCase%>(c *fiber.Ctx) error {
+    return nil
+}

@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/webappbot/backendboilerplate/config"
-	_ "github.com/webappbot/backendboilerplate/docs"
-	"github.com/webappbot/backendboilerplate/routes"
-	"github.com/webappbot/backendboilerplate/src/db"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/webappbot/backendboilerplate/config"
+	_ "github.com/webappbot/backendboilerplate/docs"
+	"github.com/webappbot/backendboilerplate/local-src/db"
+	"github.com/webappbot/backendboilerplate/routes"
 )
 
 func Start(production bool) {
