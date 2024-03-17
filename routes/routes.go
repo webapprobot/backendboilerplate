@@ -12,8 +12,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/webappbot/backendboilerplate/config"
 	"github.com/webappbot/backendboilerplate/docs"
+	"github.com/webappbot/backendboilerplate/local-src/systemRoutes"
 
-	systemRoutes "github.com/webappbot/backendboilerplate/local-src/systemRoutes"
 	controllers "github.com/webappbot/backendboilerplate/src/controllers"
 
 	systemControllers "github.com/webappbot/backendboilerplate/src/controllers"
@@ -83,5 +83,3 @@ func Setup(app *fiber.App) {
 		_ = method.Call(args)
 	}
 }
-
-// CreateApin_drugs

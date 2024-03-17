@@ -4,7 +4,7 @@ PORT:
   dev: 8001
   prod: 8000
 update: 86400
-domain: 157.230.56.77:8001
+domain: localhost:8001
 scheme: https
 documentation: true
 contacts:

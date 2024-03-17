@@ -18,9 +18,11 @@ import (
 // @Summary      Create <%-modelTitleCase%>
 // @Description  Create <%-modelTitleCase%> for <%-package%>
 // @Tags         <%-package%>-controller
-<% if (actionStructs.create !== undefined) { %>// @Accept       json
+<% if (actionStructs.create !== undefined) { %>
+// @Accept       json
 // @Param        create<%-modelTitleCase%>      body   Create<%=modelTitleCase%>Struct   true   "Create<%=modelTitleCase%>Struct object that needs to be created"
-<% } %>// @Produce      json
+  <% } %>
+// @Produce      json
 // @Router       /<%-package%>/<%-modelCamelCase%> [post]
 func Create<%-modelTitleCase%>(c *fiber.Ctx) error {
     <% if (isDevEnv === true) { %>
@@ -51,10 +53,8 @@ func Read<%-modelTitleCase%>(c *fiber.Ctx) error {
 // @Summary      Delete <%-modelTitleCase%>
 // @Description  Delete <%-modelTitleCase%> for <%-package%>
 // @Tags         <%-package%>-controller
-// @Param userId query string true "<%-modelTitleCase%> ID to be deleted"
-// @Success 200 {string} string "<%-modelTitleCase%> deleted successfully"
-// @Failure 401 {string} string "Unauthorized: <%-modelTitleCase%> authentication failed"
-// @Failure 404 {string} string "Not Found: <%-modelTitleCase%> does not exist"
+// @Accept       json
+// @Produce      json
 // @Router       /<%-package%>/<%-modelCamelCase%> [delete]
 func Delete<%-modelTitleCase%>(c *fiber.Ctx) error {
     <% if (isDevEnv === true) { %>
@@ -70,9 +70,7 @@ func Delete<%-modelTitleCase%>(c *fiber.Ctx) error {
 // @Description  Update <%-modelTitleCase%> for <%-package%>
 // @Tags         <%-package%>-controller
 // @Accept       json
-<% if (actionStructs.create !== undefined) { %>// @Accept       json
-  // @Param        create<%-modelTitleCase%>      body   Create<%=modelTitleCase%>Struct   true   "Update<%=modelTitleCase%>Struct object to update"
-  <% } %>// @Produce      json
+// @Produce      json
 // @Router       /<%-package%>/<%-modelCamelCase%> [patch]
 func Update<%-modelTitleCase%>(c *fiber.Ctx) error {
     <% if (isDevEnv === true) { %>
@@ -82,3 +80,34 @@ func Update<%-modelTitleCase%>(c *fiber.Ctx) error {
         return nil
       <% } %>
 }
+
+
+
+/// routeFunc
+/*{
+  instance := &<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistent{}
+  if i, ok := interface{}(instance).(<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistentInterface); ok {
+      method := reflect.ValueOf(i).MethodByName("<%-funcName%>")
+      if method.IsValid() && !method.IsNil() {
+          //i.<%-funcName%>(&fiber.Ctx{})
+          wrapper := func(c *fiber.Ctx) error {
+              result := method.Call([]reflect.Value{reflect.ValueOf(c)})
+              if len(result) > 0 && !result[0].IsNil() {
+                  return result[0].Interface().(error)
+              }
+              //if !result[0].IsNil() {
+              //	return result[0].Interface().(error)
+              //}
+              // // If the result is nil, return a generic error
+              // return fmt.Errorf("<%-funcName%> returned nil")
+              return nil
+          }
+          // Use the wrapper function as the handler for the route
+          <%-package%>.<%-subAction%>("/<%-modelCamelCase%>", wrapper)
+      } else {
+          <%-action%>("/<%-modelCamelCase%>", <%-funcNameStr%>)
+      }
+  } else {
+      <%-action%>("/<%-modelCamelCase%>", <%-funcNameStr%>)
+  }
+}*/

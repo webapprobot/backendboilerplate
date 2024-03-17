@@ -1,24 +1,27 @@
-    {
-        instance := &<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistent{}
-        if i, ok := interface{}(instance).(<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistentInterface); ok {
-            method := reflect.ValueOf(i).MethodByName("<%-funcName%>")
-            if method.IsValid() && !method.IsNil() {
-                //i.<%-funcName%>(&fiber.Ctx{})
-                wrapper := func(c *fiber.Ctx) error {
-					result := method.Call([]reflect.Value{reflect.ValueOf(c)})
-					if !result[0].IsNil() {
-						return result[0].Interface().(error)
-					}
-					// // If the result is nil, return a generic error
-					// return fmt.Errorf("<%-funcName%> returned nil")
-					return nil
-				}
-				// Use the wrapper function as the handler for the route
-				<%-package%>.Get("/user", wrapper)
-            } else {
-                <%-action%>("/<%-modelCamelCase%>", <%-funcNameStr%>)
+{
+    instance := &<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistent{}
+    if i, ok := interface{}(instance).(<%-package%>ControllerPersistent.<%-packageTitleCase%>ControllerPersistentInterface); ok {
+        method := reflect.ValueOf(i).MethodByName("<%-funcName%>")
+        if method.IsValid() && !method.IsNil() {
+            //i.<%-funcName%>(&fiber.Ctx{})
+            wrapper := func(c *fiber.Ctx) error {
+                result := method.Call([]reflect.Value{reflect.ValueOf(c)})
+                if len(result) > 0 && !result[0].IsNil() {
+                    return result[0].Interface().(error)
+                }
+                //if !result[0].IsNil() {
+                //	return result[0].Interface().(error)
+                //}
+                // // If the result is nil, return a generic error
+                // return fmt.Errorf("<%-funcName%> returned nil")
+                return nil
             }
+            // Use the wrapper function as the handler for the route
+            <%-package%>.<%-subAction%>("/<%-modelCamelCase%>", wrapper)
         } else {
             <%-action%>("/<%-modelCamelCase%>", <%-funcNameStr%>)
         }
+    } else {
+        <%-action%>("/<%-modelCamelCase%>", <%-funcNameStr%>)
     }
+  }

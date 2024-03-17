@@ -13,8 +13,10 @@ type <%=modelTitleCase%> struct {
 }
 
 func (<%=modelCamelCase%> *<%=modelTitleCase%>) BeforeCreate(scope *gorm.DB) error {
+	<% if (!Primary){%>
 	if <%=modelCamelCase%>.<%=modelTitleCase%>Id == uuid.Nil { // for update
 		<%=modelCamelCase%>.<%=modelTitleCase%>Id = uuid.New()
 	}
+	<%}%>
 	return nil
 }

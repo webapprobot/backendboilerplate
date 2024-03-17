@@ -1,0 +1,4 @@
+type <%=action%><%=modelTitleCase%>Struct struct {
+    <% Object.keys(fields).forEach(function(field) { %>
+	<%= field %> <%= fields[field].type %>  `gorm:"<% if (fields[field].Primary) { %>primary_key;<% } %><% if (fields[field].NotNull) { %>not null;<% } %><% if (fields[field].Unique) { %>unique;<% } %><% if (fields[field].DefaultValue) { %>default:<%-fields[field].DefaultValue%>;<% } %><% if (fields[field].Length) { %>type:varchar(<%-fields[field].Length%>);<% } %><% if (fields[field].misc) { %><%-fields[field].misc%>;<% } %>"`<% }); %>
+}
