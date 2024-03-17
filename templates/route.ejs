@@ -1,8 +1,10 @@
 package systemRoutes
 
 import (
+	"reflect"
 	"github.com/gofiber/fiber/v2"
 	<%=package%>Controller "<%-modulePath%>/local-src/controllers/<%=package%>"
+	<%=package%>ControllerPersistent "<%-modulePath%>/local-src/persistent-controllers/<%=package%>"
 )
 
 func (f SystemRoutes) <%=packageTitleCase%>(api *fiber.Group) {

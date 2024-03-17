@@ -5,6 +5,7 @@ import (
 	<% Object.keys(imports).forEach(function(imported) { %>
 	<%-imports[imported]%> <% }); 
 	%>
+    <% if (isDevEnv === true) { %>"fmt"<%}%>
 )
 
 // Create<%-modelTitleCase%> godoc
@@ -14,7 +15,12 @@ import (
 // @Accept       json
 // @Produce      json
 func Create<%-modelTitleCase%>(c *fiber.Ctx) error {
-    return nil
+    <% if (isDevEnv === true) { %>
+        fmt.Println("Create<%-modelTitleCase%>")
+        return c.JSON(fiber.Map{"status": "success", "message": fmt.Sprintf("Create<%-modelTitleCase%>"), "data": nil})
+      <% } else { %>
+        return nil
+      <% } %>
 }
 
 // Read<%-modelTitleCase%> godoc
@@ -24,7 +30,12 @@ func Create<%-modelTitleCase%>(c *fiber.Ctx) error {
 // @Accept       json
 // @Produce      json
 func Read<%-modelTitleCase%>(c *fiber.Ctx) error {
-    return nil
+    <% if (isDevEnv === true) { %>
+        fmt.Println("Read<%-modelTitleCase%>")
+        return c.JSON(fiber.Map{"status": "success", "message": fmt.Sprintf("Read<%-modelTitleCase%>"), "data": nil})
+      <% } else { %>
+        return nil
+      <% } %>
 }
 
 // Delete<%-modelTitleCase%> godoc
@@ -34,7 +45,12 @@ func Read<%-modelTitleCase%>(c *fiber.Ctx) error {
 // @Accept       json
 // @Produce      json
 func Delete<%-modelTitleCase%>(c *fiber.Ctx) error {
-    return nil
+    <% if (isDevEnv === true) { %>
+        fmt.Println("Delete<%-modelTitleCase%>")
+        return c.JSON(fiber.Map{"status": "success", "message": fmt.Sprintf("Delete<%-modelTitleCase%>"), "data": nil})
+      <% } else { %>
+        return nil
+      <% } %>
 }
 
 // Update<%-modelTitleCase%> godoc
@@ -44,5 +60,10 @@ func Delete<%-modelTitleCase%>(c *fiber.Ctx) error {
 // @Accept       json
 // @Produce      json
 func Update<%-modelTitleCase%>(c *fiber.Ctx) error {
-    return nil
+    <% if (isDevEnv === true) { %>
+        fmt.Println("Update<%-modelTitleCase%>")
+        return c.JSON(fiber.Map{"status": "success", "message": fmt.Sprintf("Update<%-modelTitleCase%>"), "data": nil})
+      <% } else { %>
+        return nil
+      <% } %>
 }

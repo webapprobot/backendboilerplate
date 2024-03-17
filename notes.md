@@ -111,3 +111,6 @@ swag init --parseDependency --parseInternal
 ```
 projectman@cseco.co.ke
 ```
+
+
+authController -> authControllerPersistent in local-src/persistent-controllerrs (there are not deleted by updates). Controllers here are preferred to those in local-src/controllers

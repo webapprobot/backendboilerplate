@@ -1,0 +1,11 @@
+package <%=package%>ControllerPersistent
+
+import (
+	"github.com/gofiber/fiber/v2"
+)
+
+type <%-packageTitleCase%>ControllerPersistentInterface interface {
+	EmptyUser(c *fiber.Ctx) error
+}
+
+type <%-packageTitleCase%>ControllerPersistent struct{}
